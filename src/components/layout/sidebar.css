@@ -1,0 +1,28 @@
+.sidebar {
+  background-color: whitesmoke;
+  width: 60%;
+  height: 100vh;
+  z-index: 2;
+}
+.sidebar p {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-left: 1rem;
+}
+.sidebar-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+.sidebar-list hr {
+  margin: 0.3rem;
+  width: 30%;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-list li {
+  font-size: 1.3rem;
+}
+.sidebar-list li i {
+  margin-right: 0.5rem;
+}

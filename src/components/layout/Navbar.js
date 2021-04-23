@@ -1,55 +1,64 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import logo from "../../assets/logo.svg";
+import Sidebar from "./Sidebar";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { startLogin } from "../../actions/authActions";
+
+// Borrar:
+import profile from "../../assets/profile.jpg";
+
 const Navbar = () => {
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+  const dispatch = useDispatch();
+  const { logged } = useSelector((state) => state.auth);
+  const [stateSidebar, setStateSidebar] = useState(false);
 
-  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  const handleSidebar = () => {
+    setStateSidebar(!stateSidebar);
+  };
+
+  const handleLogin = () => {
+    dispatch(startLogin());
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light rounded">
-      <a className="navbar-brand text-info font-weight-bolder" href="/">
-        <img
-          src={logo}
-          alt="Logo"
-          width="36"
-          height="36"
-          className="vertical-align-middle"
-        />
-        <span className="">Discounter</span>
-      </a>
-      <button
-        className="custom-toggler navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarsExample09"
-        aria-controls="navbarsExample09"
-        aria-expanded={!isNavCollapsed ? true : false}
-        aria-label="Toggle navigation"
-        onClick={handleNavCollapse}
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+    <>
+      <nav className="nav pt-2 pb-2">
+        <div className="container container-nav">
+          <div className="l-side">
+            <i
+              className="bi bi-list btn btn-outline-primary"
+              onClick={handleSidebar}
+            ></i>
+            <Link to="/">
+              <img src={logo} className="nav-img ms-2" alt="" />
+            </Link>
+          </div>
 
-      <div
-        className={`${isNavCollapsed ? "collapse" : ""} navbar-collapse`}
-        id="navbarsExample09"
-      >
-        <a className="nav-link text-info" href="/contact">
-          Support
-        </a>
-        <a className="nav-link text-info" href="/login">
-          Login
-        </a>
-        <a
-          href="/request-demo"
-          className="btn btn-sm btn-info nav-link text-white"
-        >
-          Request demo
-        </a>
-      </div>
-    </nav>
+          <div className="r-side">
+            {/* TODO: CHECAR SI ESTA LOGEADO Y MOSTRAR  */}
+            {!logged ? (
+              <Link onClick={handleLogin} className="btn btn-primary">
+                Create a account
+              </Link>
+            ) : (
+              <img style={styles.img} src={profile} alt="profile" />
+            )}
+          </div>
+        </div>
+      </nav>
+      {stateSidebar && <Sidebar status={true} />}
+    </>
   );
 };
 
+// BORRAR
+const styles = {
+  img: {
+    width: 50,
+    height: 50,
+  },
+};
+// BORRAR
 export default Navbar;
