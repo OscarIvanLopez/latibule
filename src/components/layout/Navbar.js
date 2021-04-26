@@ -1,22 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./navbar.css";
 import logo from "../../assets/logo.svg";
-import Sidebar from "./Sidebar";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { startLogin } from "../../actions/authActions";
-
-// Borrar:
-import profile from "../../assets/profile.jpg";
+import { startShowSidebar } from "../../actions/uiActions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const { logged } = useSelector((state) => state.auth);
-  const [stateSidebar, setStateSidebar] = useState(false);
+  const { pathname } = useLocation();
 
-  const handleSidebar = () => {
-    setStateSidebar(!stateSidebar);
-  };
 
   const handleLogin = () => {
     dispatch(startLogin());
@@ -29,7 +22,7 @@ const Navbar = () => {
           <div className="l-side">
             <i
               className="bi bi-list btn btn-outline-primary"
-              onClick={handleSidebar}
+              onClick={() => dispatch(startShowSidebar())}
             ></i>
             <Link to="/">
               <img src={logo} className="nav-img ms-2" alt="" />
@@ -38,27 +31,28 @@ const Navbar = () => {
 
           <div className="r-side">
             {/* TODO: CHECAR SI ESTA LOGEADO Y MOSTRAR  */}
-            {!logged ? (
-              <Link onClick={handleLogin} className="btn btn-primary">
-                Create a account
+            {pathname === "/register" ? (
+              <Link
+                to="/login"
+                onClick={handleLogin}
+                className="btn btn-primary"
+              >
+                Login
               </Link>
             ) : (
-              <img style={styles.img} src={profile} alt="profile" />
+              <Link
+                to="/register"
+                onClick={handleLogin}
+                className="btn btn-primary"
+              >
+                Create a account
+              </Link>
             )}
           </div>
         </div>
       </nav>
-      {stateSidebar && <Sidebar status={true} />}
     </>
   );
 };
 
-// BORRAR
-const styles = {
-  img: {
-    width: 50,
-    height: 50,
-  },
-};
-// BORRAR
 export default Navbar;

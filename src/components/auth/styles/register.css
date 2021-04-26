@@ -1,0 +1,57 @@
+.register-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 90%;
+}
+.register-card hr{  
+  width: 50%;
+  
+}
+form input {
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: 0.3px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.sign-up-networks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.sign-up-networks button {
+  width: 100%;
+  margin: 0.3rem 0;
+  border-radius: 0.3rem;
+  border: none;
+  padding: 0.3rem;
+}
+
+.sign-up-networks .btn-github {
+  background-color: black;
+  color: white;
+}
+.sign-up-networks .btn-twitter {
+  background-color: var(--twitterBlue);
+  color: white;
+}
+.sign-up-networks .btn-google  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign-up-networks .btn-google img {
+  margin-right: .1rem;
+  width: 19px;
+}
