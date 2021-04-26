@@ -2,6 +2,9 @@
 
 :root {
   --principalColor: #ffadad;
+  --gray: #e8e8e8;
+  --darkGray: #ccd2da;
+  --twitterBlue: #1a91da;
 }
 
 * {
@@ -9,6 +12,37 @@
   margin: 0;
 }
 
-body, html {
-    font-family: 'Open Sans', sans-serif;;
+body,
+html {
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--gray);
+  width: 100%;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.j-cont-bet {
+  justify-content: space-between;
 }
