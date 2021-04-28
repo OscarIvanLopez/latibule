@@ -2,18 +2,13 @@ import React from "react";
 import "./navbar.css";
 import logo from "../../assets/logo.svg";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { startLogin } from "../../actions/authActions";
+import { useDispatch, useSelector } from "react-redux";
 import { startShowSidebar } from "../../actions/uiActions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const { pathname } = useLocation();
-
-
-  const handleLogin = () => {
-    dispatch(startLogin());
-  };
 
   return (
     <>
@@ -30,21 +25,18 @@ const Navbar = () => {
           </div>
 
           <div className="r-side">
-            {/* TODO: CHECAR SI ESTA LOGEADO Y MOSTRAR  */}
-            {pathname === "/register" ? (
-              <Link
-                to="/login"
-                onClick={handleLogin}
-                className="btn btn-primary"
-              >
+            {user ? (
+              <div className="items-group">
+                {" "}
+                <i className="bi bi-bell-fill"></i>{" "}
+                <img className="profile-pic" src={user.photoURL} />
+              </div>
+            ) : pathname === "/register" ? (
+              <Link to="/login" className="btn btn-primary">
                 Login
               </Link>
             ) : (
-              <Link
-                to="/register"
-                onClick={handleLogin}
-                className="btn btn-primary"
-              >
+              <Link to="/register" className="btn btn-primary">
                 Create a account
               </Link>
             )}

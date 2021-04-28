@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useForm from "../../hooks/useForm";
 import "./styles/register.css";
 import googleLogo from "../../assets/logo-google.svg";
+import { useDispatch } from "react-redux";
+import { getUserInfoGithub, startGithubLogin } from "../../actions/authActions";
 
 const Register = () => {
   const [values, handleInputChange] = useForm();
-
-
+  const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
+  };
+
+  useEffect(() => {
+    dispatch(getUserInfoGithub());
+  }, [dispatch]);
+
+  const githubAuth = () => {
+    dispatch(startGithubLogin());
   };
 
   return (
@@ -52,7 +61,7 @@ const Register = () => {
       <p>or</p>
 
       <div className="sign-up-networks">
-        <button className="btn-github">
+        <button className="btn-github" onClick={githubAuth}>
           <i className="bi bi-github"></i> Sign up with Github{" "}
         </button>
         <button className="btn-twitter">

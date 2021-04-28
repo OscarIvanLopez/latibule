@@ -11,9 +11,8 @@
   text-align: center;
   width: 90%;
 }
-.register-card hr{  
+.register-card hr {
   width: 50%;
-  
 }
 form input {
   padding: 0.5rem;
@@ -28,6 +27,14 @@ form input {
   justify-content: center;
   align-items: center;
   width: 70%;
+}
+
+.sign-up-networks a {
+  width: 100%;
+  margin: 0.3rem 0;
+  border-radius: 0.3rem;
+  border: none;
+  padding: 0.3rem;
 }
 
 .sign-up-networks button {
@@ -46,12 +53,12 @@ form input {
   background-color: var(--twitterBlue);
   color: white;
 }
-.sign-up-networks .btn-google  {
+.sign-up-networks .btn-google {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .sign-up-networks .btn-google img {
-  margin-right: .1rem;
+  margin-right: 0.1rem;
   width: 19px;
 }
