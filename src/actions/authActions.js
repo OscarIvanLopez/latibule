@@ -13,9 +13,6 @@ export const getUserInfoGithub = () => {
       .auth()
       .getRedirectResult()
       .then((res) => {
-        if (res.credential) {
-          const token = res.credential.accessToken;
-        }
         const user = res.user;
         dispatch(saveUser(user));
       })
@@ -36,6 +33,3 @@ const saveUser = (user) => ({
   payload: user,
 });
 
-const startLogin = () => ({
-  type: types.authLogin,
-});

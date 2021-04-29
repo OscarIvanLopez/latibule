@@ -15,7 +15,6 @@
 body,
 html {
   font-family: "Open Sans", sans-serif;
-  background-color: var(--gray);
   width: 100%;
   scrollbar-width: none;
 }
@@ -35,6 +34,10 @@ a {
   text-decoration: none;
 }
 
+p{
+  margin: 0;
+}
+
 .flex {
   display: flex;
 }
@@ -45,4 +48,10 @@ a {
 
 .j-cont-bet {
   justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

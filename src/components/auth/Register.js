@@ -6,8 +6,10 @@ import { useDispatch } from "react-redux";
 import { getUserInfoGithub, startGithubLogin } from "../../actions/authActions";
 
 const Register = () => {
+  
   const [values, handleInputChange] = useForm();
   const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);

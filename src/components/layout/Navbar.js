@@ -20,7 +20,7 @@ const Navbar = () => {
               onClick={() => dispatch(startShowSidebar())}
             ></i>
             <Link to="/">
-              <img src={logo} className="nav-img ms-2" alt="" />
+              <img src={logo} className="nav-img ms-2" alt="logo" />
             </Link>
           </div>
 
@@ -29,7 +29,45 @@ const Navbar = () => {
               <div className="items-group">
                 {" "}
                 <i className="bi bi-bell-fill"></i>{" "}
-                <img className="profile-pic" src={user.photoURL} />
+                <div className="dropstart">
+                  <img
+                    className="profile-pic-nav"
+                    src={user.photoURL}
+                    alt="profile pic"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  />
+                  <ul className="dropdown-menu">
+                    <li>
+                      <Link className="dropdown-item" to={'/profile'} >
+                        {user.displayName} <br />
+                        {user.email}
+                        <hr />
+                      </Link>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Write a post
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Reading list
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Settings
+                        <hr />
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Log out
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             ) : pathname === "/register" ? (
               <Link to="/login" className="btn btn-primary">
