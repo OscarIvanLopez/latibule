@@ -30,16 +30,16 @@ const Navbar = () => {
                 {" "}
                 <i className="bi bi-bell-fill"></i>{" "}
                 <div className="dropstart">
-                  <img
-                    className="profile-pic-nav"
-                    src={user.photoURL}
+                  <a
                     alt="profile pic"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                  />
+                  >
+                    <img src={user.photoURL} className="profile-pic-nav" />
+                  </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to={'/profile'} >
+                      <Link className="dropdown-item" to={"/profile"}>
                         {user.displayName} <br />
                         {user.email}
                         <hr />

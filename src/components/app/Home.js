@@ -1,13 +1,10 @@
 import moment from "moment";
 import React from "react";
-import { useSelector } from "react-redux";
 import postImage from "../../assets/temp/react.png";
 import postProfileImage from "../../assets/profile.jpg";
 import "./styles/home.css";
 
 const Home = () => {
-  const { user } = useSelector((state) => state.auth);
-
   // BORRAR:
   const date = new Date();
 
