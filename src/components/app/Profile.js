@@ -9,7 +9,7 @@ const Profile = () => {
         <img src={profilePic} alt="profile pic" className="profile-pic" />
         <div className="description">
           <h1>Aydin Berenice</h1>
-          <p>Estoy toda hermosa</p>
+          <p>Estoy toda perfecta</p>
         </div>
 
         <div className="profile-info">
