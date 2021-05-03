@@ -18,7 +18,6 @@ const Profile = () => {
                         Follow
                     </button>
                 </div>
-
                 <div className="profile-info">
                     <div className="location">
                         <i class="bi bi-geo-alt-fill"></i>
