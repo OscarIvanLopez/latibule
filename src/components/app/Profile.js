@@ -1,19 +1,20 @@
 import React from "react";
 import "./styles/profile.css";
-import profilePic from "../../assets/profile.jpg";
+import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
+    const { user } = useSelector((state) => state.auth);
     return (
         <div className="container profile-container">
             <div className="profile">
                 <img
-                    src={profilePic}
+                    src={user.photoURL}
                     alt="profile pic"
                     className="profile-pic"
                 />
                 <div className="description">
-                    <h1>Aydin Berenice</h1>
-                    <p>Estoy toda hermosa</p>
+                    <h1>{user.displayName}</h1>
+                    <p class="email-profile">{user.email}</p>
                     <button className="btn btn-primary btn-follow">
                         Follow
                     </button>
@@ -29,7 +30,7 @@ const Profile = () => {
                     </div>
                     <div className="email">
                         <i class="bi bi-envelope-fill"></i>
-                        <p>aydin@hermosa.com</p>
+                        <p class="email-profile">{user.email}</p>
                     </div>
                     <div className="social-contact">
                         <i className="bi bi-twitter"></i>
@@ -39,7 +40,7 @@ const Profile = () => {
 
                 <div className="work">
                     <p>Work</p>
-                    <p>Python backend developer</p>
+                    <p>Frotend developer</p>
                 </div>
             </div>
             .
