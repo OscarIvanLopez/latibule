@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./navbar.css";
 import logo from "../../assets/logo.svg";
 import { Link, useLocation } from "react-router-dom";
